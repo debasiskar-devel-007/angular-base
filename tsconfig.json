@@ -17,6 +17,20 @@
     "lib": [
       "es2018",
       "dom"
-    ]
+    ],
+    "paths": {
+      "login-management": [
+        "dist/login-management"
+      ],
+      "login-management/*": [
+        "dist/login-management/*"
+      ],
+      "calendar-management": [
+        "dist/calendar-management"
+      ],
+      "calendar-management/*": [
+        "dist/calendar-management/*"
+      ]
+    }
   }
 }
