@@ -8,10 +8,12 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { CalendarManagementModule } from '../../projects/calendar-management/src/lib/calendar-management.module'
 import { from } from 'rxjs';
 import { LoginManagementModule } from 'projects/login-management/src/lib/login-management.module';
+import { TestComponent } from './test/test.component';
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    TestComponent
   ],
   imports: [
     BrowserModule,
