@@ -1,39 +1,26 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Inject } from '@angular/core';
 import {MatPaginator} from '@angular/material/paginator';
 import {MatSort} from '@angular/material/sort';
 import {MatTableDataSource} from '@angular/material/table';
+import {MatDialog, MatDialogRef, MAT_DIALOG_DATA} from '@angular/material/dialog';
+
+export interface DialogData {
+  animal: string ;
+}
 
 @Component({
   selector: 'lib-calendar-management',
-  template: `
-  
-  <mat-card >
-  <mat-toolbar color="primary">
-  <h2 class="headerSpan">Manage Availability</h2>
-</mat-toolbar>
-<mat-card-content class="gridListWrapper">
-<mat-grid-list cols="2" rowHeight="10px">
-<mat-grid-tile [colspan]="cols" [rowspan]="rows">1</mat-grid-tile>
-<mat-grid-tile [colspan]="cols" [rowspan]="rows">2</mat-grid-tile>
-</mat-grid-list>
-</mat-card-content>
-<mat-toolbar class="buttonsetToolbar" >
-<button class="singleButton" mat-raised-button color="primary"> Sync with Google Calendar </button>
-<button class="singleButton" mat-raised-button color="primary"> Add or update calendar settings </button>
-<button class="singleButton" mat-raised-button color="primary"> Slot View </button> 
-<button class="singleButton" mat-raised-button color="primary"> Add Event </button> 
-</mat-toolbar>
-
-</mat-card>
-  `,
+  templateUrl: 'calendar-management.component.html',
   styleUrls: ['style.css']
 })
 export class CalendarManagementComponent implements OnInit {
   cols: number=1;
   rows: number=1;
   public slotlist:any= [];
+  animal: string='jhcksjhkh';
 
-  constructor() {
+
+  constructor(public dialog: MatDialog) {
     this.slotlist= [
       {
       "id": 1,
@@ -75,6 +62,27 @@ export class CalendarManagementComponent implements OnInit {
    }
 
   ngOnInit() {
+  }
+  gotoAvailability() {
+    const dialogRef = this.dialog.open(AddAvailabilityComponent, {
+      width: '250px',
+      data: { animal: this.animal}
+    });
+  }
+
+}
+@Component({
+  selector: 'lib-add-availability',
+  templateUrl: 'add-availability.component.html',
+  styleUrls: ['style.css']
+})
+export class AddAvailabilityComponent {
+
+  constructor( public dialogRef: MatDialogRef<AddAvailabilityComponent>,
+    @Inject(MAT_DIALOG_DATA) public data: DialogData) {}
+ 
+  onNoClick(): void {
+    this.dialogRef.close();
   }
 
 }

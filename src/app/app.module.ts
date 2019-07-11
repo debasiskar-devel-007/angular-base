@@ -9,11 +9,13 @@ import { CalendarManagementModule } from '../../projects/calendar-management/src
 import { from } from 'rxjs';
 import { LoginManagementModule } from 'projects/login-management/src/lib/login-management.module';
 import { TestComponent } from './test/test.component';
+import { TestCalenderComponent } from './test-calender/test-calender.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    TestComponent
+    TestComponent,
+    TestCalenderComponent
   ],
   imports: [
     BrowserModule,
