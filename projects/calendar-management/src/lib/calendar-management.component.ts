@@ -1,8 +1,9 @@
-import { Component, OnInit, Inject } from '@angular/core';
+import { Component, OnInit, Inject, Input } from '@angular/core';
 import {MatPaginator} from '@angular/material/paginator';
 import {MatSort} from '@angular/material/sort';
 import {MatTableDataSource} from '@angular/material/table';
 import {MatDialog, MatDialogRef, MAT_DIALOG_DATA} from '@angular/material/dialog';
+import { Router, ActivatedRoute, Params } from '@angular/router';
 
 export interface DialogData {
   animal: string ;
@@ -14,13 +15,19 @@ export interface DialogData {
   styleUrls: ['style.css']
 })
 export class CalendarManagementComponent implements OnInit {
-  cols: number=1;
+  ///for gridlist colspan and rowspan style
+  cols: number=1;             
   rows: number=1;
   public slotlist:any= [];
-  animal: string='jhcksjhkh';
+  public addAvailURL:any='';      // url variable to fetch the add availability form page
+  @Input()          //setting the add form url from project
+  set addAvailData(addAvailurlval: any) {
+    this.addAvailURL = (addAvailurlval) || '<no name set>';
+    this.addAvailURL = addAvailurlval;
+  }
 
 
-  constructor(public dialog: MatDialog) {
+  constructor(public dialog: MatDialog, public router:Router) {
     this.slotlist= [
       {
       "id": 1,
@@ -63,11 +70,8 @@ export class CalendarManagementComponent implements OnInit {
 
   ngOnInit() {
   }
-  gotoAvailability() {
-    const dialogRef = this.dialog.open(AddAvailabilityComponent, {
-      width: '250px',
-      data: { animal: this.animal}
-    });
+  gotoAvailability() {              //for rendering the project in the add form
+    this.router.navigateByUrl('/'+this.addAvailURL);
   }
 
 }
