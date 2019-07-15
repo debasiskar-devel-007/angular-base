@@ -36,6 +36,7 @@ export class LoginManagementComponent implements OnInit {
 
   ngOnInit() {
   }
+  
   loginSubmit() {
     console.log(this.myForm.value);
   }
