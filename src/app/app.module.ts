@@ -21,6 +21,8 @@ import { ListCategoryComponent } from './category-management/list-category/list-
 /* Category Management library */
 import { CategoryManagementModule } from '../../projects/category-management/src/lib/category-management.module';
 
+import { ListingModule } from "listing-angular7";
+
 
 @NgModule({
   declarations: [
@@ -44,7 +46,9 @@ import { CategoryManagementModule } from '../../projects/category-management/src
 
     /* Category Management library */
     CategoryManagementModule,
-    // DataAddEditComponent
+    // DataAddEditComponent,
+
+    ListingModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

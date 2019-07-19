@@ -11,11 +11,13 @@ const routes: Routes = [
   { path: "", component: TestComponent},
   { path: "test", component: TestComponent},
   { path: "testCalender", component: TestCalenderComponent},
+
+  /* Category Management */
+  { path: "category-management", component: ListCategoryComponent},
   { path: "category-management/list", component: ListCategoryComponent},
   { path: "category-management/add", component: AddEditCategoryComponent},
   { path: "category-management/edit/:id", component: AddEditCategoryComponent},
 
-  /* Category Management */
 ];
 
 @NgModule({

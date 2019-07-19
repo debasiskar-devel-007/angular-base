@@ -12,9 +12,8 @@ export class CategoryManagementComponent implements OnInit {
 
   public categoryData: any;
   @Input()
-  set data(receivedCategoryData: any) {
+  set config(receivedCategoryData: any) {
     this.categoryData = receivedCategoryData;
-    console.log(this.categoryData);
   }
 
   constructor() { }

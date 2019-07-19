@@ -6,6 +6,10 @@ import { CategoryManagementComponent } from './category-management.component';
 import { DataListComponent } from './component/data-list/data-list.component';
 import { DataAddEditComponent } from './component/data-add-edit/data-add-edit.component';
 
+import { HttpClientModule } from '@angular/common/http';
+
+import { ListingModule } from "listing-angular7";
+
 @NgModule({
   declarations: [
     CategoryManagementComponent,
@@ -17,6 +21,10 @@ import { DataAddEditComponent } from './component/data-add-edit/data-add-edit.co
     MaterialModule,
     FormsModule,
     ReactiveFormsModule,
+
+    HttpClientModule,
+
+    ListingModule,
   ],
   exports: [
     CategoryManagementComponent,
